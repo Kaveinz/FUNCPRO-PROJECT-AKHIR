@@ -1,0 +1,60 @@
+@import './input.css';
+
+/* Kelas kustom untuk UI kita */
+@layer components {
+  .input-field {
+    @apply w-full bg-slate-700 text-gray-100 px-3 py-2 rounded-lg border border-slate-600 focus:outline-none focus:ring-2 focus:ring-teal-400 placeholder-gray-400;
+  }
+  .btn-primary {
+    @apply bg-teal-400 text-black font-bold py-2 px-4 rounded-lg hover:bg-teal-300;
+  }
+  .btn-secondary {
+    @apply bg-slate-600 text-gray-100 font-semibold py-2 px-4 rounded-lg hover:bg-slate-500;
+  }
+  .task-item {
+    @apply bg-slate-800 p-4 rounded-lg;
+  }
+  .nav-btn {
+    @apply text-gray-300 hover:text-teal-400 cursor-pointer font-semibold py-2 border-b-2 border-transparent;
+  }
+  .nav-btn-active {
+    @apply text-teal-300 border-teal-400;
+  }
+}
+
+/* Styling untuk Notifikasi Kustom */
+.notifikasi-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #1F2937; /* bg-slate-800 */
+  color: #F3F4F6; /* text-gray-100 */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid #2DD4BF; /* border-teal-400 */
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  z-index: 50;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease;
+}
+.notifikasi-popup.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+.notifikasi-popup strong {
+  display: block;
+  font-weight: bold;
+  color: #2DD4BF; /* text-teal-400 */
+  margin-bottom: 5px;
+}
+.notif-dismiss {
+    background: none;
+    border: none;
+    color: #9CA3AF; /* text-gray-400 */
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
