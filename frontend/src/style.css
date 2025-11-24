@@ -6,7 +6,7 @@
     @apply w-full bg-slate-700 text-gray-100 px-3 py-2 rounded-lg border border-slate-600 focus:outline-none focus:ring-2 focus:ring-teal-400 placeholder-gray-400;
   }
   .btn-primary {
-    @apply bg-teal-400 text-black font-bold py-2 px-4 rounded-lg hover:bg-teal-300;
+    @apply bg-teal-400 text-black font-bold py-2 px-6 rounded-lg hover:bg-teal-300;
   }
   .btn-secondary {
     @apply bg-slate-600 text-gray-100 font-semibold py-2 px-4 rounded-lg hover:bg-slate-500;
@@ -57,4 +57,53 @@
     right: 8px;
     cursor: pointer;
     font-weight: bold;
+}
+
+.header-bg-svg {
+    background-image: url('assets/images/asset4.svg');
+    background-repeat: no-repeat;
+    background-size: 1550px auto; /* atur ukuran */
+    background-position: 50% 60%; /* horizontal vertical */
+}
+
+
+.decor-svg {
+    overflow: hidden;
+    position: absolute;
+    bottom: 50px;
+    left: -30px;
+    width: 350px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.becor-svg {
+    overflow: hidden;
+    position: absolute;
+    bottom: 200px;
+    right: -30px;
+    width: 300px;
+    z-index: 10;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.jam-png {
+    position: absolute;
+    bottom: -20px;
+    left: -150px;
+    width: 450px;
+    pointer-events: none;
+}
+
+.jam2-png {
+    position: absolute;
+    bottom: 150px;
+    right: -150px;
+    max-width: 450px;
+    pointer-events: none;
+}
+
+body {
+    overflow: hidden;
 }

@@ -5,42 +5,79 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>GoPlanner</title>
 </head>
-<body class="bg-slate-900 text-gray-100">
-  <header class="p-6 border-b border-slate-700">
+<body class="bg-slate-900 text-gray-100 ">
+
+  <header class="p-6 border-b border-slate-700 header-bg-svg" >
     <nav class="max-w-5xl mx-auto flex gap-8">
-      <a class="nav-btn nav-btn-active" id="nav-tugas">Tugas</a>
-      <a class="nav-btn" id="nav-jadwal">Jadwal Kelas</a>
-      <a class="nav-btn" id="nav-pengaturan">Pengaturan</a>
+      <a class="nav-btn nav-btn-active text-xl" id="nav-tugas">TUGAS</a>
+      <a class="nav-btn text-xl" id="nav-jadwal">JADWAL KELAS</a>
+      <a class="nav-btn text-xl" id="nav-pengaturan">PENGATURAN</a>
       </nav>
   </header>
 
-  <main class="max-w-5xl mx-auto p-6">
-    
-    <section id="page-tugas" class="page-content">
+  <main class="max-w-5xl mx-auto mt-4">
+
+    <section id="page-tugas" class="page-content ">
       <h1 class="text-teal-400 text-4xl font-bold mb-6">Daftar Tugas</h1>
-      <div class="p-6 rounded-lg bg-slate-800 mb-6">
-        <h2 class="text-xl font-semibold mb-4">Tambah Tugas Baru</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <input id="tugas-judul" placeholder="Judul Tugas" class="input-field" />
-          <textarea id="tugas-deskripsi" placeholder="Deskripsi (opsional)" class="input-field col-span-1"></textarea>
-          <input id="tugas-deadline" type="datetime-local" class="input-field" />
-          <select id="tugas-reminder" class="input-field col-span-1">
-            <option value="NONE">Tanpa Reminder</option>
-            <option value="60">1 Jam Sebelum</option>
-            <option value="360">6 Jam Sebelum</option>
-            <option value="480">8 Jam Sebelum</option>
-            <option value="1440">1 Hari Sebelum</option>
-            <option value="SETIAP_JAM_DI_HARI_H">Setiap Jam di Hari H</option>
-          </select>
+      <div class="p-6 rounded-lg bg-slate-800 mb-6 task-form-container">
+        <h2 class="text-2xl font-semibold mb-4">Tambah Tugas Baru</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <label class="text-1xl font-semibold text-gray-30">Judul</label>
+          <input id="tugas-judul" 
+                 placeholder="Judul Tugas" 
+                 class="input-field md:col-span-3" />
         </div>
-        <div class="mt-6 text-center">
-          <button id="btn-tambah-tugas" class="btn-primary">Tambah</button>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <label class="text-1xl font-semibold text-gray-30">Deskripsi</label>
+          <textarea id="tugas-deskripsi" 
+                    placeholder="Deskripsi (opsional)" 
+                    class="input-field md:col-span-3"></textarea>
+        </div>
+            
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <div class="col-span-1">
+                <label class="text-1xl font-semibold text-gray-300 mb-4 block">Tanggal</label>
+                <input id="tugas-deadline" 
+                      type="datetime-local" 
+                      class="input-field" />
+            </div>
+
+            <div class="col-span-1">
+                <label class="text-1xl font-semibold text-gray-300 mb-4 block">Reminder</label>
+                <select id="tugas-reminder" 
+                        class="input-field">
+                    <option value="NONE">Tanpa Reminder</option>
+                    <option value="60">1 Jam Sebelum</option>
+                    <option value="360">6 Jam Sebelum</option>
+                    <option value="480">8 Jam Sebelum</option>
+                    <option value="1440">1 Hari Sebelum</option>
+                    <option value="SETIAP_JAM_DI_HARI_H">Setiap Jam di Hari H</option>
+                </select>
+            </div>
+
+        </div>
+
+
+        <div class="mt-7">
+          <button id="btn-tambah-tugas" class="btn-primary">Tambah Tugas</button>
         </div>
       </div>
+
       <ul id="tugas-list" class="space-y-4"></ul>
+
+    <img src="/src/assets/images/Asset3.svg" class="decor-svg" alt="Decor">
+    <img src="/src/assets/images/Asset 5.svg" class="becor-svg" alt="Becor">
+
     </section>
+  
+  
 
     <section id="page-jadwal" class="page-content hidden">
+      <img src="/src/assets/images/jam.png" class="jam-png" alt="jam">
+            <img src="/src/assets/images/jam.png" class="jam2-png" alt="jam">
       <h1 class="text-teal-400 text-4xl font-bold mb-6">Jadwal Kelas</h1>
        <div class="p-6 rounded-lg bg-slate-800 mb-6">
         <h2 class="text-xl font-semibold mb-4">Tambah Jadwal Baru</h2>
@@ -63,6 +100,8 @@
         </div>
        </div>
       <div id="jadwal-list" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+
+      
     </section>
 
     <section id="page-pengaturan" class="page-content hidden">
