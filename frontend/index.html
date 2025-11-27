@@ -4,51 +4,49 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>GoPlanner</title>
-</head>
-<body class="bg-slate-900 text-gray-100 ">
+  
+  </head>
 
-  <header class="p-6 border-b border-slate-700 header-bg-svg" >
+<body class="bg-slate-900 text-gray-100 font-sans h-screen flex flex-col overflow-hidden relative">
+
+  <header class="p-6 border-b border-slate-700 header-bg-svg shrink-0 z-20 relative">
     <nav class="max-w-5xl mx-auto flex gap-8">
-      <a class="nav-btn nav-btn-active text-xl" id="nav-tugas">TUGAS</a>
-      <a class="nav-btn text-xl" id="nav-jadwal">JADWAL KELAS</a>
-      <a class="nav-btn text-xl" id="nav-pengaturan">PENGATURAN</a>
-      </nav>
+      <a class="nav-btn nav-btn-active text-xl cursor-pointer" id="nav-tugas">TUGAS</a>
+      <a class="nav-btn text-xl cursor-pointer" id="nav-jadwal">JADWAL KELAS</a>
+      <a class="nav-btn text-xl cursor-pointer" id="nav-pengaturan">PENGATURAN</a>
+    </nav>
   </header>
 
-  <main class="max-w-5xl mx-auto mt-4">
+  <main class="max-w-5xl w-full mx-auto mt-4 p-6 flex-1 overflow-y-auto relative z-10">
 
-    <section id="page-tugas" class="page-content ">
+    <section id="page-tugas" class="page-content relative">
       <h1 class="text-teal-400 text-4xl font-bold mb-6">Daftar Tugas</h1>
-      <div class="p-6 rounded-lg bg-slate-800 mb-6 task-form-container">
+      
+      <div class="p-6 rounded-lg bg-slate-800 mb-6 task-form-container relative z-20">
         <h2 class="text-2xl font-semibold mb-4">Tambah Tugas Baru</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <label class="text-1xl font-semibold text-gray-30">Judul</label>
-          <input id="tugas-judul" 
-                 placeholder="Judul Tugas" 
-                 class="input-field md:col-span-3" />
+          <div class="md:col-span-3">
+             <label class="text-lg font-semibold text-gray-300 block mb-2">Judul</label>
+             <input id="tugas-judul" placeholder="Judul Tugas" class="input-field" />
+          </div>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <label class="text-1xl font-semibold text-gray-30">Deskripsi</label>
-          <textarea id="tugas-deskripsi" 
-                    placeholder="Deskripsi (opsional)" 
-                    class="input-field md:col-span-3"></textarea>
+           <div class="md:col-span-3">
+             <label class="text-lg font-semibold text-gray-300 block mb-2">Deskripsi</label>
+             <textarea id="tugas-deskripsi" placeholder="Deskripsi (opsional)" class="input-field md:col-span-3"></textarea>
+           </div>
         </div>
             
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
             <div class="col-span-1">
-                <label class="text-1xl font-semibold text-gray-300 mb-4 block">Tanggal</label>
-                <input id="tugas-deadline" 
-                      type="datetime-local" 
-                      class="input-field" />
+                <label class="text-lg font-semibold text-gray-300 mb-2 block">Tanggal</label>
+                <input id="tugas-deadline" type="datetime-local" class="input-field" />
             </div>
-
             <div class="col-span-1">
-                <label class="text-1xl font-semibold text-gray-300 mb-4 block">Reminder</label>
-                <select id="tugas-reminder" 
-                        class="input-field">
+                <label class="text-lg font-semibold text-gray-300 mb-2 block">Reminder</label>
+                <select id="tugas-reminder" class="input-field">
                     <option value="NONE">Tanpa Reminder</option>
                     <option value="60">1 Jam Sebelum</option>
                     <option value="360">6 Jam Sebelum</option>
@@ -57,64 +55,66 @@
                     <option value="SETIAP_JAM_DI_HARI_H">Setiap Jam di Hari H</option>
                 </select>
             </div>
-
         </div>
 
-
-        <div class="mt-7">
-          <button id="btn-tambah-tugas" class="btn-primary">Tambah Tugas</button>
+        <div class="mt-7 text-right">
+          <button id="btn-tambah-tugas" class="btn-primary w-full md:w-auto">Tambah Tugas</button>
         </div>
       </div>
 
-      <ul id="tugas-list" class="space-y-4"></ul>
+      <ul id="tugas-list" class="space-y-4 pb-20 relative z-20"></ul>
 
-    <img src="/src/assets/images/Asset3.svg" class="decor-svg" alt="Decor">
-    <img src="/src/assets/images/Asset 5.svg" class="becor-svg" alt="Becor">
+      <img src="/src/assets/images/Asset3.svg" class="decor-svg" alt="Decor">
+      <img src="/src/assets/images/Asset 5.svg" class="becor-svg" alt="Becor">
 
     </section>
-  
-  
 
-    <section id="page-jadwal" class="page-content hidden">
+    <section id="page-jadwal" class="page-content hidden relative">
       <img src="/src/assets/images/jam.png" class="jam-png" alt="jam">
-            <img src="/src/assets/images/jam.png" class="jam2-png" alt="jam">
-      <h1 class="text-teal-400 text-4xl font-bold mb-6">Jadwal Kelas</h1>
-       <div class="p-6 rounded-lg bg-slate-800 mb-6">
+      <img src="/src/assets/images/jam.png" class="jam2-png" alt="jam">
+      
+      <h1 class="text-teal-400 text-4xl font-bold mb-6 relative z-20">Jadwal Kelas</h1>
+       <div class="p-6 rounded-lg bg-slate-800 mb-6 relative z-20">
         <h2 class="text-xl font-semibold mb-4">Tambah Jadwal Baru</h2>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <input id="jadwal-matkul" type="text" placeholder="Mata Kuliah" class="input-field">
-            <select id="jadwal-hari" class="input-field">
-                <option value="Senin">Senin</option>
-                <option value="Selasa">Selasa</option>
-                <option value="Rabu">Rabu</option>
-                <option value="Kamis">Kamis</option>
-                <option value="Jumat">Jumat</option>
-                <option value="Sabtu">Sabtu</option>
-                <option value="Minggu">Minggu</option>
-            </select>
-            <input id="jadwal-jam" type="time" class="input-field">
-            <input id="jadwal-reminder" type="number" placeholder="Reminder (menit)" class="input-field" value="10">
-        </div>
-        <div class="mt-6 text-center">
-          <button id="btn-tambah-jadwal" class="btn-primary">Tambah</button>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+            <div>
+                <label class="block mb-2 text-sm font-bold text-gray-400">Mata Kuliah</label>
+                <input id="jadwal-matkul" type="text" placeholder="Mata Kuliah" class="input-field">
+            </div>
+            <div>
+                <label class="block mb-2 text-sm font-bold text-gray-400">Hari</label>
+                <select id="jadwal-hari" class="input-field">
+                    <option value="Senin">Senin</option>
+                    <option value="Selasa">Selasa</option>
+                    <option value="Rabu">Rabu</option>
+                    <option value="Kamis">Kamis</option>
+                    <option value="Jumat">Jumat</option>
+                    <option value="Sabtu">Sabtu</option>
+                    <option value="Minggu">Minggu</option>
+                </select>
+            </div>
+            <div>
+                <label class="block mb-2 text-sm font-bold text-gray-400">Jam Mulai</label>
+                <input id="jadwal-jam" type="time" class="input-field">
+            </div>
+            <div>
+                <input id="jadwal-reminder" type="number" placeholder="Reminder (menit)" class="input-field hidden" value="60">
+                <button id="btn-tambah-jadwal" class="btn-primary w-full">Tambah</button>
+            </div>
         </div>
        </div>
-      <div id="jadwal-list" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
-
-      
+      <div id="jadwal-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-20 relative z-20"></div>
     </section>
 
     <section id="page-pengaturan" class="page-content hidden">
       <h1 class="text-teal-400 text-4xl font-bold mb-6">Pengaturan</h1>
       <div class="p-4 bg-slate-800 rounded-lg max-w-md">
-        
         <label class="block mb-2 font-semibold">Suara Notifikasi</label>
         <div class="flex items-center gap-2">
-            <input id="soundToggle" type="checkbox" class="w-5 h-5" />
+            <input id="soundToggle" type="checkbox" class="w-5 h-5 accent-teal-500" />
             <span>Aktifkan suara (Gunakan audio default)</span>
         </div>
-        <p class="text-sm text-gray-400 mt-2">Suara notifikasi menggunakan file audio 'alert.mp3' yang ada di dalam aplikasi.</p>
-
+        <p class="text-sm text-gray-400 mt-2">Suara notifikasi menggunakan audio 'alert.mp3'.</p>
       </div>
     </section>
   </main>

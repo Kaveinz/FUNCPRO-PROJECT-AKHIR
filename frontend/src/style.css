@@ -1,109 +1,98 @@
-@import './input.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Kelas kustom untuk UI kita */
+/* =========================================
+   LAYER COMPONENTS (Komponen UI Reusable)
+   ========================================= */
 @layer components {
   .input-field {
-    @apply w-full bg-slate-700 text-gray-100 px-3 py-2 rounded-lg border border-slate-600 focus:outline-none focus:ring-2 focus:ring-teal-400 placeholder-gray-400;
+    @apply w-full bg-slate-700 text-gray-100 px-3 py-2 rounded-lg border border-slate-600 focus:outline-none focus:ring-2 focus:ring-teal-400 placeholder-gray-400 transition-all duration-200;
   }
+  
   .btn-primary {
-    @apply bg-teal-400 text-black font-bold py-2 px-6 rounded-lg hover:bg-teal-300;
+    @apply bg-teal-500 text-slate-900 font-bold py-2 px-4 rounded-lg hover:bg-teal-400 transition-colors cursor-pointer;
   }
+  
   .btn-secondary {
-    @apply bg-slate-600 text-gray-100 font-semibold py-2 px-4 rounded-lg hover:bg-slate-500;
+    @apply bg-slate-600 text-gray-100 font-semibold py-2 px-4 rounded-lg hover:bg-slate-500 transition-colors cursor-pointer;
   }
+  
   .task-item {
-    @apply bg-slate-800 p-4 rounded-lg;
+    @apply bg-slate-800 p-4 rounded-lg shadow-sm border border-slate-700;
   }
+  
   .nav-btn {
-    @apply text-gray-300 hover:text-teal-400 cursor-pointer font-semibold py-2 border-b-2 border-transparent;
+    @apply text-gray-400 hover:text-teal-400 font-bold text-lg px-4 py-2 cursor-pointer border-b-4 border-transparent transition-all duration-200;
   }
+  
   .nav-btn-active {
-    @apply text-teal-300 border-teal-400;
+    @apply text-teal-400 border-teal-400;
   }
 }
 
-/* Styling untuk Notifikasi Kustom */
-.notifikasi-popup {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #1F2937; /* bg-slate-800 */
-  color: #F3F4F6; /* text-gray-100 */
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border-left: 4px solid #2DD4BF; /* border-teal-400 */
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-  z-index: 50;
-  opacity: 0;
-  transform: translateX(100%);
-  transition: all 0.5s ease;
-}
-.notifikasi-popup.show {
-  transform: translateX(0);
-  opacity: 1;
-}
-.notifikasi-popup strong {
-  display: block;
-  font-weight: bold;
-  color: #2DD4BF; /* text-teal-400 */
-  margin-bottom: 5px;
-}
-.notif-dismiss {
-    background: none;
-    border: none;
-    color: #9CA3AF; /* text-gray-400 */
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    cursor: pointer;
-    font-weight: bold;
+/* =========================================
+   LAYER UTILITIES (Posisi & Dekorasi Khusus)
+   ========================================= */
+@layer utilities {
+  /* Notifikasi Popup */
+  .notifikasi-popup {
+    @apply fixed top-5 right-5 bg-gray-800 text-gray-100 p-4 rounded-lg border-l-4 border-teal-400 shadow-xl z-50 opacity-0 translate-x-full transition-all duration-500 ease-in-out;
+  }
+  
+  .notifikasi-popup.show {
+    @apply translate-x-0 opacity-100;
+  }
+
+  .notif-dismiss {
+    @apply absolute top-1 right-2 bg-transparent border-none text-gray-400 hover:text-white cursor-pointer text-lg;
+  }
+
+  /* Header Background SVG */
+  .header-bg-svg {
+    background-image: url('./assets/images/asset4.svg');
+    @apply bg-no-repeat bg-cover bg-center;
+  }
+
+  /* Dekorasi Gambar (Asset & Jam) */
+  /* Menggunakan Arbitrary Values Tailwind v3 ([...]) untuk nilai piksel spesifik */
+  
+  .decor-svg {
+    @apply fixed bottom-5 -left-2.5 w-[300px] z-0 opacity-80 pointer-events-none;
+  }
+
+  .becor-svg {
+    @apply fixed bottom-[100px] -right-5 w-[250px] z-0 opacity-80 pointer-events-none;
+  }
+
+  .jam-png {
+    @apply fixed -bottom-[50px] -left-[50px] w-[300px] z-0 opacity-50 pointer-events-none;
+  }
+
+  .jam2-png {
+    @apply fixed top-[100px] -right-[50px] w-[300px] z-0 opacity-50 rotate-180 pointer-events-none;
+  }
 }
 
-.header-bg-svg {
-    background-image: url('assets/images/asset4.svg');
-    background-repeat: no-repeat;
-    background-size: 1550px auto; /* atur ukuran */
-    background-position: 50% 60%; /* horizontal vertical */
-}
+/* =========================================
+   BASE STYLES (Global & Reset)
+   ========================================= */
+@layer base {
+  body {
+    @apply h-screen flex flex-col overflow-hidden bg-slate-900 text-gray-100 font-sans;
+  }
 
-
-.decor-svg {
-    overflow: hidden;
-    position: absolute;
-    bottom: 50px;
-    left: -30px;
-    width: 350px;
-    z-index: 10;
-    pointer-events: none;
-}
-
-.becor-svg {
-    overflow: hidden;
-    position: absolute;
-    bottom: 200px;
-    right: -30px;
-    width: 300px;
-    z-index: 10;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-.jam-png {
-    position: absolute;
-    bottom: -20px;
-    left: -150px;
-    width: 450px;
-    pointer-events: none;
-}
-
-.jam2-png {
-    position: absolute;
-    bottom: 150px;
-    right: -150px;
-    max-width: 450px;
-    pointer-events: none;
-}
-
-body {
-    overflow: hidden;
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-800;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-600 rounded;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-500;
+  }
 }
